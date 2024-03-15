@@ -12,11 +12,11 @@ st.title('📧 Testimony Writer Assistant App')
 
 openai_api_key = st.sidebar.text_input('OpenAI API Key')
 huggingface_api_key = st.sidebar.text_input('HuggingFaceHub API Key')
-huggingface_repo_id = st.sidebar.text_input('HuggingFace Repo ID', "mistralai/Mistral-8x7B-Instruct-v0.1")
+# huggingface_repo_id = st.sidebar.text_input('HuggingFace Repo ID', "mistralai/Mistral-8x7B-Instruct-v0.1")
 
 option = st.selectbox(
     'Which model that you want to test?',
-    ('Gemini', 'GPT4', 'HuggingFace'))
+    ('Gemini', 'GPT4'))
 
 st.write('You selected:', option)
 
@@ -63,8 +63,8 @@ with st.form('my_form'):
   elif option == 'Gemini': 
     llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7)
     llm_vision = ChatGoogleGenerativeAI(model="gemini-pro-vision")
-  elif option == 'HuggingFace': 
-    llm = HuggingFaceEndpoint(repo_id=huggingface_repo_id, temperature=0.5, token=huggingface_api_key)
+  # elif option == 'HuggingFace': 
+  #   llm = HuggingFaceEndpoint(repo_id=huggingface_repo_id, temperature=0.5, token=huggingface_api_key)
 
   # prompt
   text = st.text_area('How do you want your testimony to be written?', 'นาย ก. ซึ่งอาศัยอยู่เขตจตุจักร กรุงเทพมหานคร ทำบัตรประชาชนหาย เมื่อวันที่ 15 มีนาคม พ.ศ. 2567 เวลาประมาณ 15:00 สถานที่ที่คาดว่าหายคือ สนามบินดอนเมือง มีพยานที่อยู่ด้วยกันคือนาง ข. ซึ่งเป็นคุณแม่ของนาย ก. และอาศัยอยู่ด้วยกันกับนาย ก. และมีการเข้าแจ้งความในวันถัดไป')
@@ -82,8 +82,8 @@ with st.form('my_form'):
   if option == 'GPT4' and submitted and openai_api_key.startswith('sk-'):
     generate_response(text)
 
-  ## HuggingFaceHub
-  if option == 'HuggingFace' and not huggingface_api_key.startswith('hf_'):
-    st.warning('Please enter your HuggingFaceHub API key!', icon='⚠')
-  if option == 'HuggingFace' and submitted and huggingface_api_key.startswith('hf_'):
-    generate_response(text)
+  # ## HuggingFaceHub
+  # if option == 'HuggingFace' and not huggingface_api_key.startswith('hf_'):
+  #   st.warning('Please enter your HuggingFaceHub API key!', icon='⚠')
+  # if option == 'HuggingFace' and submitted and huggingface_api_key.startswith('hf_'):
+  #   generate_response(text)

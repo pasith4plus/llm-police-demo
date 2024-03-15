@@ -14,7 +14,7 @@ def generate_response(input_text):
   # os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
   # os.environ["LINE_CHATBOT_API_KEY"] = LINE_CHATBOT_API_KEY
 
-  llm = ChatGoogleGenerativeAI(model="gemini-pro")
+  llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=1.0)
   llm_vision = ChatGoogleGenerativeAI(model="gemini-pro-vision")
 
     # 1. setup prompt
@@ -50,7 +50,7 @@ def generate_response(input_text):
 
 with st.form('my_form'):
   # prompt
-  text = st.text_area('How do you want your testimony to be written?', 'นาย ก. ทำบัตรประชาชนหาย เมื่อวันที่ 15 มีนาคม พ.ศ. 2567 เวลาประมาณ 15:00 สถานที่ที่คาดว่าหายคือ สนามบินดอนเมือง มีพยานที่อยู่ด้วยกันคือนาง ข. ซึ่งเป็นคุณแม่ของนาย ก.')
+  text = st.text_area('How do you want your testimony to be written?', 'นาย ก. ซึ่งอาศัยอยู่เขตจตุจักร กรุงเทพมหานคร ทำบัตรประชาชนหาย เมื่อวันที่ 15 มีนาคม พ.ศ. 2567 เวลาประมาณ 15:00 สถานที่ที่คาดว่าหายคือ สนามบินดอนเมือง มีพยานที่อยู่ด้วยกันคือนาง ข. ซึ่งเป็นคุณแม่ของนาย ก. และอาศัยอยู่ด้วยกันกับนาย ก. และมีการเข้าแจ้งความในวันถัดไป')
   submitted = st.form_submit_button('Submit')
   if submitted:
     generate_response(text)

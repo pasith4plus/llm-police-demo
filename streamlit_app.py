@@ -11,8 +11,8 @@ st.title('📧 Testimony Writer Assistant App')
 
 def generate_response(input_text):
 
-  os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
-  os.environ["LINE_CHATBOT_API_KEY"] = LINE_CHATBOT_API_KEY
+  # os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+  # os.environ["LINE_CHATBOT_API_KEY"] = LINE_CHATBOT_API_KEY
 
   llm = ChatGoogleGenerativeAI(model="gemini-pro")
   llm_vision = ChatGoogleGenerativeAI(model="gemini-pro-vision")

@@ -14,7 +14,7 @@ def generate_response(input_text):
   # os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
   # os.environ["LINE_CHATBOT_API_KEY"] = LINE_CHATBOT_API_KEY
 
-  llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=1.0)
+  llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7)
   llm_vision = ChatGoogleGenerativeAI(model="gemini-pro-vision")
 
     # 1. setup prompt

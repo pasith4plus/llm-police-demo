@@ -1,5 +1,5 @@
 streamlit
-openai
+openai==0.28
 langchain
 langchain-google-genai==0.0.9
 pillow==10.2.0
